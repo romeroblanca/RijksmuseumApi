@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import com.romeroblanca.rijksmuseum.components.ShowError
+import com.romeroblanca.rijksmuseum.presentation.theme.Black
+import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -40,12 +42,12 @@ fun ArtObjectDetailsScreen(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text("Detalle de ${ artObjectDetails.artObject.label.title }")
+                        Text("${ artObjectDetails.artObject.label.title }")
                     },
                     navigationIcon = {
                         IconButton(
                             modifier = Modifier.semantics {
-                                contentDescription = "Atrás Botón Ir al listado de personajes"
+                                contentDescription = "Go back"
                             },
                             onClick = onBack
                         ) {
@@ -58,6 +60,6 @@ fun ArtObjectDetailsScreen(
             ShowArtObjectDetails(artObjectDetails = artObjectDetails)
         }
     } ?: run {
-        ShowError("Unknown errorrrrrrrrrrrrrrrrrrrttttttttttttttttttttttttr ${ result }")
+        ShowError("Unknown error")
     }
 }

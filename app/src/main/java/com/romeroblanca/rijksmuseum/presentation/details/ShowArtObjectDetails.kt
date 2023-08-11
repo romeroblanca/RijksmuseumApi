@@ -52,7 +52,7 @@ fun ShowArtObjectDetails(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(artObjectDetails.artObject.webImage.url)
                 .build(),
-            contentDescription = "Personaje ${ artObjectDetails.artObject.label.title } Imagen"
+            contentDescription = "Title: ${ artObjectDetails.artObject.label.title }"
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -63,23 +63,19 @@ fun ShowArtObjectDetails(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = artObjectDetails.artObject.label.description,
-                    maxLines = 1,
+                    text = artObjectDetails.artObject.label.makerLine,
+                    maxLines = 20,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
-                    text = artObjectDetails.artObject.label.makerLine,
-                    maxLines = 4,
+                    text = artObjectDetails.artObject.label.description,
+                    maxLines = 50,
                     overflow = TextOverflow.Ellipsis
                 )
             }
 
         }
     }
-
-    /*
-    Ejecuta el requestFocus al finalizar la composición de la vista
-     */
     LaunchedEffect(Unit) {
         this.coroutineContext.job.invokeOnCompletion {
             requester.requestFocus()
@@ -94,17 +90,3 @@ fun AndroidViewTest(artObjectDetails: ArtObjectDetailsModel) {
     }
 
 }
-
-/*
-@Composable
-@Preview
-fun ShowHeroPreview() {
-    ShowArtObjectDetails(
-        HeroTestDataBuilder()
-            .withName("Sample name long text long text long text long textlong text long text long text")
-            .withDescription("")
-
-            .buildSingle()
-    )
-}
-*/

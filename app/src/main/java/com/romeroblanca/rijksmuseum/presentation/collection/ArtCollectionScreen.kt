@@ -41,8 +41,6 @@ fun ArtCollectionScreen(
         ShowError(error = error ?: "")
     }
 
-
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -51,13 +49,10 @@ fun ArtCollectionScreen(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-
-
-
                         AndroidView(
                             modifier = Modifier
                                 .semantics {
-                                    contentDescription = "Hacer Favorito"
+                                    contentDescription = "Rijksmuseum logo"
                                 },
                             factory = { context ->
                                 LogoComponent(context)
@@ -83,7 +78,6 @@ fun ArtCollectionScreen(
                         onItemClick.invoke(artObject.objectNumber)
                     }
                 }
-
             }
         }
     }
