@@ -34,7 +34,7 @@ class ArtCollectionViewModel(
                 }
                 _artCollection.value = result
             } catch (t: Throwable) {
-                _errorMessage.value = "Unknown error"
+                _errorMessage.value = "Error unknown"
             }
         }
     }
